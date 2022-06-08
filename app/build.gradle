@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
+}
+
+apply from: "dependencies.gradle"
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "ru.ozon.route256.workshop1"
+        minSdk 24
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation coreKtx
+    implementation navigation.values()
+    implementation appCompat
+    implementation material
+    implementation constraintLayout
+    implementation viewModel
+    implementation lifecycle
+    implementation liveData
+    implementation glide
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation junit
+    androidTestImplementation androidTestJunit
+    androidTestImplementation espresso
+}
